@@ -5,9 +5,12 @@ package Customer;
  */
 public class Customer implements Comparable<Customer> {
 
+    private int id;
    private String Name;
    private String lastName;
    private String middleName;
+    private String address;
+    private String phoneNumber;
    private int numberCreditCard;
    private int bankAccountNumber;
 
@@ -56,7 +59,7 @@ public class Customer implements Comparable<Customer> {
     public int compareTo(Customer o) {
         return lastName. compareTo(o.lastName);
     }
-    public static void creditCardGet(Customer[]customers, int a, int b){
+    public static void creditCardGet(Customer[]customers, int a, int b) {
         for(int i = 0; i<customers.length; i++){
             if(customers[i].numberCreditCard>a && customers[i].numberCreditCard<b){
                 System.out.println(customers[i].toString());

@@ -4,7 +4,8 @@ package Student;
  * Created by Николай on 04.08.2016.
  */
 public class Student {
-    private int id;
+    private static int genderedId = 0;
+    private final int id;
     private String name;
     private String lastName;
     private String middleName;
@@ -15,22 +16,27 @@ public class Student {
     private int cource;
     private int group;
 
-    public Student() {
+    {
+        genderedId++;
+    }
+    Student() {
+
+        id = genderedId;
     }
 
     public Student(int id, String name, String lastName,
                    String middleName, String birthday,
                    String address, String phoneNumber,
-                   String departament, int cource, int group) {
-        this.id = id;
+                   String department, int coerce, int group) {
+        this.id = genderedId;
         this.name = name;
         this.lastName = lastName;
         this.middleName = middleName;
         this.birthday = birthday;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.departament = departament;
-        this.cource = cource;
+        this.departament = department;
+        this.cource = coerce;
         this.group = group;
     }
 
@@ -108,17 +114,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", departament='" + departament + '\'' +
-                ", cource=" + cource +
-                ", group=" + group +
-                '}';
+        return lastName + " " + name + " " + middleName + ", дата рождения: "
+                + birthday + ", адрес: " + address + ", телефон: " + phoneNumber + ", факультет "
+                + departament + ", " + cource + " курс" + ", группа " + group;
     }
 }
