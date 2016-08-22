@@ -1,68 +1,65 @@
-package car;
+package Car;
+
+import java.util.Random;
 
 /**
- * Created by Николай on 04.08.2016.
- */
-        import java.lang.reflect.Array;
-        import java.util.ArrayList;
-        import java.util.Random;
-        import java.util.Arrays;
-
-/**
- * Created by JAVA on 29.07.2016.
+ * Created by Николай on 22.08.2016.
  */
 public class App {
-    static myClass[] cars;
-    static final String[] venders ={
-            "audi",
-            "bmw",
-            "mazda",
-            "lada"
+    private static Car[] cars;
+    private static final String[] brand = {
+            "BMW",
+            "Mercedes",
+            "Fort",
+            "Mazda",
+            "Lada",
+            "Nissan",
+            "Porshe"
     };
-    static final String [] colors ={
-            "red",
-            "blue",
-            "while",
-            "oronge"
+    private static final String[]model ={
+            "A180",
+            "Е320",
+            "S540",
+            "B220",
+            "A420",
+            "С180"
     };
-    static {
+    private static final String[] color = {
+            "Black",
+            "White",
+            "Silver",
+            "Yellow",
+            "Orange",
+            "Red",
+            "Blue",
+            "Green"
+    };
+    public static void listCar(){
         Random r = new Random();
-        cars= new myClass[10];
-        for(int i = 0; i<cars.length;i++){
-            myClass c = new myClass();
-            c.setColor(colors[r.nextInt(4)]);
-            c.setEngineVolume(r.nextDouble()*100);
-            c.setSeats(r.nextInt(6)+1);
-            c.setVender(venders[r.nextInt(4)]);
-            cars[i]= c;
+        cars = new Car[10];
+        for (int i = 0; i<cars.length;i++){
+            Car car = new Car();
+            car.setBrand(brand[r.nextInt(7)]);
+            car.setModel(model[r.nextInt(6)]);
+            car.setYearManufacture(r.nextInt(26)+1900);
+            car.setColor(color[r.nextInt(8)]);
+            car.setPrice((r.nextInt(20000)+1000)+"$");
+//            car.setRegistrationNumber(RegistrationNumberlist());
+            cars[i]=car;
         }
     }
-    public static void main(String[] args) {
-        print();
-        Arrays.sort(cars);
-        System.out.println("after sorting");
-        print();
-        myClass.myClassComparator comp = new myClass.myClassComparator(myClass.myClassComparator.SORTING_FIELD_VENDER);
-        Arrays.sort(cars,comp);
-        System.out.println("after sorting by seats");
-        print();
-//comp = setsSortingField()
-        Arrays.sort(cars,comp);
-        System.out.println("after sorting by color");
-        print();
-
-        Arrays.sort(cars,comp);
-        System.out.println("after sorting by vender");
-        print();
-
-        Arrays.sort(cars,comp);
-        System.out.println("after sorting by engine volume");
-        print();
-
-    }
-    static void print(){
-        for(myClass c: cars){
-            System.out.println(c);
+    public static void RegistrationNumberlist(){
+        Random r = new Random();
+        String a,b; a = ""; b = "";
+        String[] regist = {"AX", "ВМ", "АВ", "ВТ", "АА", "АЕ", "АР"} ;
+        String[] registLast = {"CH","AB","ИХ","AK","BC","AA","EH"};
+        a = a+regist[r.nextInt(7)];
+        b+=registLast[r.nextInt(7)];
+        String o1;
+        Car[] arr = new Car[10];
+        for (int i = 0; i<arr.length;i++) {
+            o1 = regist[r.nextInt(7)] + " " + r.nextInt(999) + 1 + " " + registLast[r.nextInt(7)];
+            System.out.println(o1);
         }
     }
 }
