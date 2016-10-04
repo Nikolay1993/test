@@ -1,5 +1,7 @@
 package taxistation;
 
+import java.math.*;
+
 /**
  * Created by Николай on 03.09.2016.
  */
@@ -47,9 +49,9 @@ public abstract class Car implements Comparable<Car> {
         return fuelConsumption;
     }
 
-//    public void setFuelConsumption(double fuelConsumption) {
-//        this.fuelConsumption = new BigDecimal(fuelConsumption).setScale(3, RoundingMode.HALF_UP).doubleValue();
-//    }
+    public void setFuelConsumption(double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
 
     @Override
     public int compareTo(Car o) {

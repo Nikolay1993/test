@@ -21,7 +21,7 @@ public class App {
     public static void main(String[] args) {
         int operator;
         boolean isExit = false;
-        while (isExit) {
+        while (!isExit) {
             System.out.println("Выберете пункт меню:");
             System.out.println("1 - Создать поезд");
             System.out.println("2 - Информация о поезде");
@@ -32,7 +32,7 @@ public class App {
                 int userChoice = Integer.parseInt(sc.next());
 
                 switch(userChoice){
-                    case 1 : createTrain();break;
+                    case 1 : createTrain(); break;
                     case 2 : trainInfo();  break;
                     case 3 : showAllTrains(); break;
                 }
