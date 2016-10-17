@@ -79,7 +79,7 @@ public class App {
             int newlength = (newYearsGifts.length*3)/2+1;
             newYearsGifts =Arrays.copyOf(newYearsGifts,newlength);
         }
-        newYearsGifts[countNewYearsGifts]=newYearsGift;
+        newYearsGifts[countNewYearsGifts++]=newYearsGift;
     }
     /**
      * Метод для создания массива конфет.
@@ -116,9 +116,9 @@ public class App {
             try {
                 operator = Integer.parseInt(scanner.next());
                 switch (operator) {
-                    case 1: return initializeFlower(new Сhocolate());
-                    case 2: return initializeFlower(new ChocolateSnowman());
-                    case 3: return initializeFlower(new ChocolateCandy());
+                    case 1: return initializeCandy(new Сhocolate());
+                    case 2: return initializeCandy(new ChocolateSnowman());
+                    case 3: return initializeCandy(new ChocolateCandy());
                     default: throw new NumberFormatException();
                 }
             } catch (NumberFormatException e) {
@@ -133,7 +133,7 @@ public class App {
      * @param candy переданный тип цветка.
      * @return инициализированноя конфета.
      */
-    static Candy initializeFlower(Candy candy) {
+    static Candy initializeCandy(Candy candy) {
         candy.setWeight(random.nextInt(100)+10);
         candy.setSugar(random.nextInt(10) + 5);
         candy.setCaloricContent(random.nextInt(100) + 10);
@@ -146,9 +146,9 @@ public class App {
         if (countNewYearsGifts == 0) {
             throw new IllegalArgumentException("Пока не создано ни одного подарка");
         }
-        System.out.println("Выберите индекс букета:");
+        System.out.println("Выберите индекс подарка:");
         for (int i=0;i<countNewYearsGifts;i++) {
-            System.out.println("букет " + (i + 1));
+            System.out.println("подарка " + (i + 1));
         }
         int selection = 0;
         boolean isReady = false;

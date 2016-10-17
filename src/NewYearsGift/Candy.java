@@ -49,7 +49,7 @@ public abstract class Candy implements Comparable<Candy>{
     }
 
     public void setCaloricContent(int caloricContent) {
-        if(caloricContent<0){
+        if(caloricContent<1){
             throw new NumberFormatException("Содержания калорийности не может быть отрецательным");
         }
         this.caloricContent = caloricContent;
@@ -60,7 +60,7 @@ public abstract class Candy implements Comparable<Candy>{
     }
 
     public void setCost(int cost) {
-        if(cost<0){
+        if(cost<1){
             throw new NumberFormatException("Цена не может быть отрецательной");
         }
         this.cost = cost;
